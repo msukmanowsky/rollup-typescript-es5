@@ -32,10 +32,12 @@ export default [
   // CommonJS (for Node) and ES module (for bundlers) build.
   {
     input: "src/main.ts",
-    plugins: [{
+    plugins: [
+      typescript({
       ...tsconfig.compilerOptions,
-      include: '**/*.{js,ts}',
-    }],
+        include: "**/*.{js,ts}"
+      })
+    ],
     external: ["lodash-es", "d3-time-format", "query-string"],
     output: [
       { file: pkg.main, format: "cjs" },
